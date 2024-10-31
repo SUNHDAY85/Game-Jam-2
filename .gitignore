@@ -9,3 +9,4 @@ UserSettings/
 *.csproj
 *.sln
 *.user
+Logs/*.log
