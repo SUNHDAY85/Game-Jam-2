@@ -1,0 +1,44 @@
+# Archivos y carpetas generados por Unity
+[Llaves]*/[Llaves].cs
+Library/
+Temp/
+obj/
+.vs/
+Build/
+Builds/
+UserSettings/
+Logs/
+*.log
+
+# Archivos de configuración del proyecto
+[Dd]ocs/
+[Mm]etadata/
+[Pp]rojectSettings/EditorBuildSettings.asset
+[Pp]rojectSettings/EditorSettings.asset
+[Pp]rojectSettings/GraphicsSettings.asset
+[Pp]rojectSettings/InputManager.asset
+[Pp]rojectSettings/ProjectSettings.asset
+[Pp]rojectSettings/TagManager.asset
+[Pp]rojectSettings/Physics2DSettings.asset
+[Pp]rojectSettings/PhysicsSettings.asset
+[Pp]rojectSettings/QualitySettings.asset
+[Pp]rojectSettings/PlayerSettings.asset
+[Pp]rojectSettings/TimeManager.asset
+[Pp]rojectSettings/UnityConnectSettings.asset
+
+# Archivos de compilación
+*.apk
+*.unitypackage
+
+# Otros archivos que puedes ignorar
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.userprefs
+
+# Configuración de entorno
+.vscode/
+.idea/
+
