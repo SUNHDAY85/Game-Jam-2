@@ -15,6 +15,9 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D enemyRigidbody2D;
 
     private SpriteRenderer enemySpriteRender;
+
+    [SerializeField] private AudioClip jumpAudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,8 @@ public class EnemyMovement : MonoBehaviour
     private void Jump()
     {
         isJump = true;
+
+        AudioManager.instance.PlaySFX(jumpAudioClip);
 
         if (!isMovingLeft)
         {
