@@ -1,0 +1,11 @@
+[Llaves]*/[Llaves].cs
+Library/
+Temp/
+obj/
+.vs/
+Build/
+Builds/
+UserSettings/
+*.csproj
+*.sln
+*.user
