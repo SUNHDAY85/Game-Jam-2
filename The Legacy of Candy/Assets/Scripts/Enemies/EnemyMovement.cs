@@ -12,11 +12,14 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private int changeDirection = 1;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D enemyRigidbody2D;
+
+    private SpriteRenderer enemySpriteRender;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        enemyRigidbody2D = GetComponent<Rigidbody2D>();
+        enemySpriteRender = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -41,8 +44,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (collision.collider.CompareTag("EditorOnly"))
         {
-            isMovingLeft = !isMovingLeft;
-            speedMovemen *= -changeDirection;
+            ChangeDirection();
         }
     }
 
@@ -60,21 +62,33 @@ public class EnemyMovement : MonoBehaviour
 
         if (decision == 0)
         {
-            isMovingLeft = !isMovingLeft;
-            speedMovemen *= -changeDirection;
+            ChangeDirection();
         }
 
         else
         {
-            isJump = true;
-            if (!isMovingLeft)
-            {
-                rigidbody2D.AddForce(new Vector2(5, 5), ForceMode2D.Impulse);
-            }
-            else
-            {
-                rigidbody2D.AddForce(new Vector2(5 * -changeDirection, 5), ForceMode2D.Impulse);
-            }
+            Jump();
+        }
+    }
+
+    private void ChangeDirection()
+    {
+        enemySpriteRender.flipX = !enemySpriteRender.flipX;
+        isMovingLeft = !isMovingLeft;
+        speedMovemen *= -changeDirection;
+    }
+
+    private void Jump()
+    {
+        isJump = true;
+
+        if (!isMovingLeft)
+        {
+            enemyRigidbody2D.AddForce(new Vector2(5, 5), ForceMode2D.Impulse);
+        }
+        else
+        {
+            enemyRigidbody2D.AddForce(new Vector2(5 * -changeDirection, 5), ForceMode2D.Impulse);
         }
     }
 }
