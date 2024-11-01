@@ -8,16 +8,35 @@ public class PlayerThrow : MonoBehaviour
     public GameObject bombaPrefab; // Prefab de la bomba que se lanzará
     public Transform puntoDeLanzamiento; // Punto desde donde se lanzará la bomba
     public float fuerzaDeLanzamiento = 10f; // Fuerza con la que se lanza la bomba
+  
+    public float timeThrow=0.1f;
+
+    float timePress=0f;
 
     void Update()
     {
-        // Detecta si se presiona la barra espaciadora
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Detecta si se esta  presiona la barra espaciadora y determina el tiempo de presion 
+        if (Input.GetKey(KeyCode.Space)) 
         {
-            LanzarBomba(); // Llama al método para lanzar la bomba
+           timePress+=Time.deltaTime; 
         }
-    }
+        if (Input.GetKeyUp(KeyCode.Space)) //  se deja de presionar la barra 
+        {
+            if (timePress >= timeThrow) // si el tiempo de presionado es mayor al rango se lanza la bomba 
+            {
+                LanzarBomba(); 
+            }
+            else
+            {
+                ColocarBomba(); // lllamado de funcion que coloca bomba en el mismo sitio 
+            }
 
+            timePress = 0f; // Reinicia el temporizador
+        }
+    
+
+    }
+    
     private void LanzarBomba()
     {
         // Crea una instancia de la bomba en la posición y rotación del punto de lanzamiento
@@ -29,5 +48,10 @@ public class PlayerThrow : MonoBehaviour
         // Aplica la fuerza en la dirección en la que el personaje está mirando
         float direccion = transform.localScale.x > 0 ? 1f : -1f; // Determina la dirección en base a la escala del personaje
         rbBomba.AddForce(new Vector2(direccion * fuerzaDeLanzamiento, fuerzaDeLanzamiento), ForceMode2D.Impulse);
+    }
+
+    private void ColocarBomba(){
+
+        Instantiate(bombaPrefab, puntoDeLanzamiento.position, puntoDeLanzamiento.rotation);
     }
 }
