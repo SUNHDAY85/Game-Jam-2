@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -21,19 +22,18 @@ public class EnemyMovement : MonoBehaviour
     public AudioClip jumpAudioClip;
 
     //For the hit player
+    public Transform seeTransform;
 
-    public Transform hitTransform;
+    public float seeRadius;
 
-    public float hitRadius;
-
-    public float hitDelayTime;
-    public float timeNextHit;
+    private EnemyAttack enemyAttackScript;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRigidbody2D = GetComponent<Rigidbody2D>();
         enemySpriteRender = GetComponent<SpriteRenderer>();
+        enemyAttackScript = GetComponent<EnemyAttack>();
 
         StartFlipSpriteX();
         InvokeRepeating("ChangeAction",0,10);
@@ -42,13 +42,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeNextHit > 0)
-        {
-            timeNextHit -= Time.deltaTime;
-        }
-
         PerformAction();
-        HitPlayer();
+        SeePlayer();
     }
 
     private void StartFlipSpriteX()
@@ -59,11 +54,41 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void SeePlayer()
+    {
+        Collider2D[] objects = Physics2D.OverlapCircleAll(seeTransform.position, seeRadius);
+
+        foreach (Collider2D collision in objects)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                enemyAttackScript.HitPlayer();
+                Debug.Log("Lo veo");
+            }
+            if (collision.CompareTag("Bombs"))
+            {
+                //enemyAttackScript.HitPlayer();
+                Debug.Log("Una bomba");
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(seeTransform.position, seeRadius);
+    }
+
     private void ChangeAction()
     {
-        if( Random.Range(0, 100) < 80)
+        int probability = Random.Range(0, 100);
+        if(probability < 80)
         {
             action = 1;
+        }
+        else if (probability < 90)
+        {
+            action = 2;
         }
         else
         {
@@ -83,6 +108,9 @@ public class EnemyMovement : MonoBehaviour
             case 1:
                 Movement();
                 break;
+            case 2:
+                JumpUp();
+                break;
         }
     }
 
@@ -99,28 +127,11 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void HitPlayer()
-    {
-        Collider2D[] objects = Physics2D.OverlapCircleAll(hitTransform.position, hitRadius);
+    
 
-        foreach (Collider2D collision in objects)
-        {
-            if (collision.CompareTag("Player") && timeNextHit <= 0)
-            {
-                timeNextHit = hitDelayTime;
-                collision.transform.GetComponent<PlayerExample>().TakeDamage();
-                Debug.Log("Lo golpeo");
-            }
-        }
-    }
+    
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(hitTransform.position, hitRadius);
-    }
-
-    private void Jump()
+    private void JumpPrecipice()
     {
         isJump = true;
         AudioManager.instance.PlaySFX(jumpAudioClip);
@@ -128,7 +139,19 @@ public class EnemyMovement : MonoBehaviour
         enemyRigidbody2D.AddForce(new Vector2(5 * changeDirection , 5), ForceMode2D.Impulse);
     }
 
-    
+    private void JumpUp()
+    {
+        
+        if (!isJump)
+        {
+            isJump = true;
+
+            AudioManager.instance.PlaySFX(jumpAudioClip);
+
+            enemyRigidbody2D.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        }
+        
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -161,7 +184,7 @@ public class EnemyMovement : MonoBehaviour
 
         else
         {
-            Jump();
+            JumpPrecipice();
         }
     }
 
