@@ -9,14 +9,25 @@ public class EnemyMovement : MonoBehaviour
 
     private bool isJump;
     private bool isMovingLeft;
+    public bool isLookingLeft;
+    private bool isFollowingPlayer;
 
     private int changeDirection = 1;
     private int action = 0;
 
-    private Rigidbody2D enemyRigidbody2D;
-    private SpriteRenderer enemySpriteRender;
+    public Rigidbody2D enemyRigidbody2D;
+    public SpriteRenderer enemySpriteRender;
 
     public AudioClip jumpAudioClip;
+
+    //For the hit player
+
+    public Transform hitTransform;
+
+    public float hitRadius;
+
+    public float hitDelayTime;
+    public float timeNextHit;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +35,28 @@ public class EnemyMovement : MonoBehaviour
         enemyRigidbody2D = GetComponent<Rigidbody2D>();
         enemySpriteRender = GetComponent<SpriteRenderer>();
 
+        StartFlipSpriteX();
         InvokeRepeating("ChangeAction",0,10);
     }
 
     // Update is called once per frame
     void Update()
     {
-        SelectAction();
+        if(timeNextHit > 0)
+        {
+            timeNextHit -= Time.deltaTime;
+        }
+
+        PerformAction();
+        HitPlayer();
+    }
+
+    private void StartFlipSpriteX()
+    {
+        if (isLookingLeft)
+        {
+            changeDirection *= -1;
+        }
     }
 
     private void ChangeAction()
@@ -45,7 +71,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void SelectAction()
+    private void PerformAction()
     {
         
 
@@ -67,10 +93,31 @@ public class EnemyMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (!isJump)
+        if (!isJump && !isFollowingPlayer)
         {
             transform.Translate(Vector3.right * speedMovemen * changeDirection * Time.deltaTime);
         }
+    }
+
+    private void HitPlayer()
+    {
+        Collider2D[] objects = Physics2D.OverlapCircleAll(hitTransform.position, hitRadius);
+
+        foreach (Collider2D collision in objects)
+        {
+            if (collision.CompareTag("Player") && timeNextHit <= 0)
+            {
+                timeNextHit = hitDelayTime;
+                collision.transform.GetComponent<PlayerExample>().TakeDamage();
+                Debug.Log("Lo golpeo");
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(hitTransform.position, hitRadius);
     }
 
     private void Jump()
@@ -122,6 +169,6 @@ public class EnemyMovement : MonoBehaviour
     {
         changeDirection *= -1;
 
-        enemySpriteRender.flipX = true;
+        enemySpriteRender.flipX = !enemySpriteRender.flipX;
     }
 }
