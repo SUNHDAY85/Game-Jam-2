@@ -19,7 +19,8 @@ public class SpawnEnemy : MonoBehaviour
 
     private void EnemySpawn()
     {
-        Instantiate(enemyList[SelectRandomEnemy()], transform.position, enemyList[SelectRandomEnemy()].transform.rotation);
+        GameObject enemySelect = enemyList[SelectRandomEnemy()];
+        Instantiate(enemySelect, transform.position, enemySelect.transform.rotation);
     }
 
     private int SelectRandomEnemy() {
