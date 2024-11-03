@@ -11,7 +11,7 @@ public class PlayerThrow : MonoBehaviour
   
     public float timeThrow=0.1f;
 
-    float timePress=0f;
+    public float  timePress=0f;// la dejo publica para ver en el unity 
 
     void Update()
     {
