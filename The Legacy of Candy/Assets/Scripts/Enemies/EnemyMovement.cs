@@ -13,8 +13,8 @@ public class EnemyMovement : MonoBehaviour
     public bool isLookingLeft;
     private bool isFollowingPlayer;
 
-    private int changeDirection = 1;
     private int action = 0;
+    private int changeDirection = 1;
 
     public Rigidbody2D enemyRigidbody2D;
     public SpriteRenderer enemySpriteRender;
@@ -35,6 +35,8 @@ public class EnemyMovement : MonoBehaviour
         enemySpriteRender = GetComponent<SpriteRenderer>();
         enemyAttackScript = GetComponent<EnemyAttack>();
 
+        isMovingLeft = isLookingLeft;
+
         StartFlipSpriteX();
         InvokeRepeating("ChangeAction",0,10);
     }
@@ -50,6 +52,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isLookingLeft)
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             changeDirection *= -1;
         }
     }
@@ -123,7 +126,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!isJump && !isFollowingPlayer)
         {
-            transform.Translate(Vector3.right * speedMovemen * changeDirection * Time.deltaTime);
+            transform.Translate(Vector3.right * speedMovemen * Time.deltaTime);
         }
     }
 
@@ -136,7 +139,7 @@ public class EnemyMovement : MonoBehaviour
         isJump = true;
         AudioManager.instance.PlaySFX(jumpAudioClip);
 
-        enemyRigidbody2D.AddForce(new Vector2(5 * changeDirection , 5), ForceMode2D.Impulse);
+        enemyRigidbody2D.AddForce(new Vector2(5 * changeDirection, 5), ForceMode2D.Impulse);
     }
 
     private void JumpUp()
@@ -192,6 +195,15 @@ public class EnemyMovement : MonoBehaviour
     {
         changeDirection *= -1;
 
-        enemySpriteRender.flipX = !enemySpriteRender.flipX;
+        if (isMovingLeft)
+        {
+            isMovingLeft = !isMovingLeft;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            isMovingLeft = !isMovingLeft;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 }
