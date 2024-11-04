@@ -15,4 +15,15 @@ public class BombExample : MonoBehaviour
     {
         
     }
+    public void TakeAction()
+    {
+        Debug.Log("hay");
+        StartCoroutine("DestroyBomb");
+    }
+
+    IEnumerator DestroyBomb()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+    }
 }

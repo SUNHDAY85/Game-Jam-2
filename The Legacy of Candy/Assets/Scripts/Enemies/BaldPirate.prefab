@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3353785146069318731}
   - component: {fileID: 6178223678568157262}
   - component: {fileID: 4703195053183579580}
+  - component: {fileID: -1190980813461405128}
   m_Layer: 11
   m_Name: BaldPirate
   m_TagString: Enemy
@@ -199,6 +200,7 @@ MonoBehaviour:
   speedMovemen: 2
   isLookingLeft: 0
   isSeePlayer: 0
+  isSeeBomb: 0
   action: 0
   changeDirection: 1
   enemyRigidbody2D: {fileID: 0}
@@ -222,9 +224,23 @@ MonoBehaviour:
   hitRadius: 0.5
   hitDelayTime: 1
   timeNextHit: 0.35
-  force: 15
-  attackAudioClip: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
+  forceHit: 15
+  forceAction: 15
+  attackAudioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
   timeToAttack: 0
+--- !u!114 &-1190980813461405128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827086426229104632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91549e6746c96ba458f9bfa8baf1660d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 2
 --- !u!1 &5246489257744141145
 GameObject:
   m_ObjectHideFlags: 0

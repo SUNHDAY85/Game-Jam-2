@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] public bool isLookingLeft;
     private bool isFollowingPlayer;
     public bool isSeePlayer;
+    public bool isSeeBomb;
 
     public int action = 0;
     [SerializeField] private int changeDirection = 1;
@@ -77,7 +78,8 @@ public class EnemyMovement : MonoBehaviour
             }
             if (collision.CompareTag("Bombs"))
             {
-                //enemyAttackScript.HitPlayer();
+                isSeeBomb = true;
+                enemyAttackScript.BombAction();
             }
         }
     }
@@ -125,7 +127,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void StayStill()
     {
-        if (!isJump && !isFollowingPlayer && !isSeePlayer)
+        if (!isJump && !isFollowingPlayer && !isSeePlayer && !isSeeBomb)
         {
             enemyAnimator.SetBool("isWalking", false);
             enemyAnimator.SetBool("isStill", true);
@@ -134,7 +136,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (!isJump && !isFollowingPlayer && !isSeePlayer)
+        if (!isJump && !isFollowingPlayer && !isSeePlayer && !isSeeBomb)
         {
             enemyAnimator.SetBool("isStill", false);
             enemyAnimator.SetBool("isWalking", true);

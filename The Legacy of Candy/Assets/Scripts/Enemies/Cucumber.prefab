@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 6526098879818828277}
   - component: {fileID: 980574990982037501}
   - component: {fileID: 2143231322372970859}
+  - component: {fileID: 1134394112975436919}
   m_Layer: 11
   m_Name: Cucumber
   m_TagString: Enemy
@@ -261,6 +262,7 @@ MonoBehaviour:
   speedMovemen: 2
   isLookingLeft: 1
   isSeePlayer: 0
+  isSeeBomb: 0
   action: 0
   changeDirection: 1
   enemyRigidbody2D: {fileID: 0}
@@ -284,6 +286,20 @@ MonoBehaviour:
   hitRadius: 0.5
   hitDelayTime: 1
   timeNextHit: 0.35
-  force: 5
-  attackAudioClip: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
+  forceHit: 5
+  forceAction: 5
+  attackAudioClip: {fileID: 8300000, guid: a931da70ee74947d5a047de583170ade, type: 3}
   timeToAttack: 0
+--- !u!114 &1134394112975436919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862948894401898451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91549e6746c96ba458f9bfa8baf1660d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 2

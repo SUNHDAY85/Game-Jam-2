@@ -11,7 +11,8 @@ public class EnemyAttack : MonoBehaviour
     public float hitDelayTime;
     public float timeNextHit;
 
-    public float force;
+    public float forceHit;
+    public float forceAction;
 
     private EnemyMovement enemyMovementScript;
 
@@ -65,7 +66,34 @@ public class EnemyAttack : MonoBehaviour
                 collision.transform.GetComponent<PlayerExample>().TakeDamage();
 
                 Vector2 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
-                collision.transform.GetComponent<Rigidbody2D>().AddForce(awayFromPlayer * force, ForceMode2D.Impulse);
+                collision.transform.GetComponent<Rigidbody2D>().AddForce(awayFromPlayer * forceHit, ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    public void BombAction()
+    {
+        Collider2D[] objects = Physics2D.OverlapCircleAll(hitTransform.position, hitRadius);
+
+        foreach (Collider2D collision in objects)
+        {
+            if (collision.CompareTag("Bombs") && timeNextHit <= 0)
+            {
+                enemyAnimator.SetBool("isWalking", false);
+                enemyAnimator.SetBool("isStill", false);
+                enemyAnimator.SetBool("isJumping", false);
+                enemyAnimator.SetBool("isAttacking", true);
+
+                StartCoroutine("NotHit");
+
+                timeNextHit = hitDelayTime;
+
+
+
+                collision.transform.GetComponent<BombExample>().TakeAction();
+
+                Vector2 awayFromBomb = (collision.gameObject.transform.position - transform.position);
+                collision.transform.GetComponent<Rigidbody2D>().AddForce(awayFromBomb * forceAction, ForceMode2D.Impulse);
             }
         }
     }
@@ -76,6 +104,7 @@ public class EnemyAttack : MonoBehaviour
         AudioManager.instance.PlaySFX(attackAudioClip);
         yield return new WaitForSeconds(0.6f);
         enemyMovementScript.isSeePlayer = false;
+        enemyMovementScript.isSeeBomb = false;
         enemyMovementScript.action = 1;
 
         enemyAnimator.SetBool("isAttacking", false);
