@@ -7,10 +7,10 @@ public class EnemyMovement : MonoBehaviour
     //Declarations
     public float speedMovemen;
 
-    private bool isJump;
-    private bool isMovingLeft;
+    [SerializeField] private bool isJump;
+    [SerializeField] private bool isMovingLeft;
     [SerializeField] public bool isLookingLeft;
-    private bool isFollowingPlayer;
+    [SerializeField]private bool isFollowingPlayer;
     public bool isSeePlayer;
     public bool isSeeBomb;
 
@@ -92,6 +92,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChangeAction()
     {
+        isSeePlayer = false;
+        isSeeBomb = false;
+
         int probability = Random.Range(0, 100);
         if(probability < 80)
         {
