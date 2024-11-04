@@ -10,12 +10,12 @@ public class EnemyMovement : MonoBehaviour
 
     private bool isJump;
     private bool isMovingLeft;
-    public bool isLookingLeft;
+    [SerializeField] public bool isLookingLeft;
     private bool isFollowingPlayer;
     public bool isSeePlayer;
 
     public int action = 0;
-    private int changeDirection = 1;
+    [SerializeField] private int changeDirection = 1;
 
     public Rigidbody2D enemyRigidbody2D;
     public SpriteRenderer enemySpriteRender;
@@ -59,7 +59,8 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log(transform.rotation);
             Debug.Log(changeDirection);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            enemySpriteRender.flipX = true;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             Debug.Log(transform.rotation);
             Debug.Log(changeDirection);
             changeDirection *= -1;
@@ -196,6 +197,11 @@ public class EnemyMovement : MonoBehaviour
         {
             Decision();
         }
+        else if (collision.CompareTag("Walls"))
+        {
+            ChangeDirection();
+        }
+
     }
 
     private void Decision()

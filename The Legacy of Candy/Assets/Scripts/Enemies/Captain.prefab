@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5726286560192082931}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SeeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,9 +46,9 @@ GameObject:
   - component: {fileID: 4211737849449643516}
   - component: {fileID: 5149304719915994272}
   - component: {fileID: -5212074956471272528}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Captain
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &4211737849449643516
 Animator:
   serializedVersion: 5
@@ -231,6 +231,7 @@ MonoBehaviour:
   isLookingLeft: 0
   isSeePlayer: 0
   action: 0
+  changeDirection: 1
   enemyRigidbody2D: {fileID: 0}
   enemySpriteRender: {fileID: 0}
   jumpAudioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
@@ -264,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7755880381475531292}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HitTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
