@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3845659491321255114}
   - component: {fileID: 2395738331819209206}
   - component: {fileID: 2706361052053822891}
+  - component: {fileID: -2805986913866581400}
   m_Layer: 6
   m_Name: 'Bomba '
   m_TagString: Bombs
@@ -165,3 +166,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.012236211, y: -0.36953822}
   m_Size: {x: 0.57401633, y: 0.55588907}
   m_Direction: 0
+--- !u!95 &-2805986913866581400
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98199424277088676}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 049c775ea54ce524fb0a9306b5977746, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
