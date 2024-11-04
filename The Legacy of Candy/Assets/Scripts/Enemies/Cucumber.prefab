@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4686477203037166117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,10 +43,11 @@ GameObject:
   - component: {fileID: 7110747147091823416}
   - component: {fileID: 6880470039749859799}
   - component: {fileID: 579165045852337895}
+  - component: {fileID: 4211737849449643516}
   - component: {fileID: 5149304719915994272}
   - component: {fileID: -5212074956471272528}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Cucumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 4706496464821928006}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -3.5, z: 0}
+  m_LocalPosition: {x: -4.5, y: -3.252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -110,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 11711e234e35db54cbce31eaaddf8880, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35fc9cbfb38a14b4c8886d4175a405c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,18 +154,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1, y: -0.05}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8, y: 0.72}
+    oldSize: {x: 1.28, y: 1.36}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.97, y: 1.36}
   m_EdgeRadius: 0
 --- !u!50 &579165045852337895
 Rigidbody2D:
@@ -193,6 +194,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &4211737849449643516
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706496464821928006}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62b495d30e607284781edc52f1a2769d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5149304719915994272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMovemen: 2
-  isLookingLeft: 0
+  isLookingLeft: 1
+  isSeePlayer: 0
+  action: 0
   enemyRigidbody2D: {fileID: 0}
   enemySpriteRender: {fileID: 0}
   jumpAudioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
@@ -227,7 +251,10 @@ MonoBehaviour:
   hitTransform: {fileID: 7755880381475531292}
   hitRadius: 0.5
   hitDelayTime: 1
-  timeNextHit: 0
+  timeNextHit: 0.35
+  force: 5
+  attackAudioClip: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
+  timeToAttack: 0
 --- !u!1 &5074610192898047806
 GameObject:
   m_ObjectHideFlags: 0

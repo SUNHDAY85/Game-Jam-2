@@ -12,8 +12,9 @@ public class EnemyMovement : MonoBehaviour
     private bool isMovingLeft;
     public bool isLookingLeft;
     private bool isFollowingPlayer;
+    public bool isSeePlayer;
 
-    private int action = 0;
+    public int action = 0;
     private int changeDirection = 1;
 
     public Rigidbody2D enemyRigidbody2D;
@@ -28,12 +29,16 @@ public class EnemyMovement : MonoBehaviour
 
     private EnemyAttack enemyAttackScript;
 
+    //For Animations
+    private Animator enemyAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyRigidbody2D = GetComponent<Rigidbody2D>();
         enemySpriteRender = GetComponent<SpriteRenderer>();
         enemyAttackScript = GetComponent<EnemyAttack>();
+        enemyAnimator = GetComponent<Animator>();
 
         isMovingLeft = isLookingLeft;
 
@@ -52,7 +57,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isLookingLeft)
         {
+            Debug.Log(transform.rotation);
+            Debug.Log(changeDirection);
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            Debug.Log(transform.rotation);
+            Debug.Log(changeDirection);
             changeDirection *= -1;
         }
     }
@@ -65,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
+                isSeePlayer = true;
                 enemyAttackScript.HitPlayer();
                 Debug.Log("Lo veo");
             }
@@ -119,23 +129,29 @@ public class EnemyMovement : MonoBehaviour
 
     private void StayStill()
     {
-
+        if (!isJump && !isFollowingPlayer && !isSeePlayer)
+        {
+            enemyAnimator.SetBool("isWalking", false);
+            enemyAnimator.SetBool("isStill", true);
+        }   
     }
 
     private void Movement()
     {
-        if (!isJump && !isFollowingPlayer)
+        if (!isJump && !isFollowingPlayer && !isSeePlayer)
         {
+            enemyAnimator.SetBool("isStill", false);
+            enemyAnimator.SetBool("isWalking", true);
             transform.Translate(Vector3.right * speedMovemen * Time.deltaTime);
         }
     }
 
-    
-
-    
-
     private void JumpPrecipice()
     {
+        enemyAnimator.SetBool("isWalking", false);
+        enemyAnimator.SetBool("isStill", false);
+        enemyAnimator.SetBool("isJumping", true);
+
         isJump = true;
         AudioManager.instance.PlaySFX(jumpAudioClip);
 
@@ -147,6 +163,10 @@ public class EnemyMovement : MonoBehaviour
         
         if (!isJump)
         {
+            enemyAnimator.SetBool("isWalking", false);
+            enemyAnimator.SetBool("isStill", false);
+            enemyAnimator.SetBool("isJumping", true);
+
             isJump = true;
 
             AudioManager.instance.PlaySFX(jumpAudioClip);
@@ -160,6 +180,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Floor"))
         {
+            enemyAnimator.SetBool("isJumping", false);
+
             isJump = false;
         }
         else if (collision.collider.CompareTag("Walls"))
