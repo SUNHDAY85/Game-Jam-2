@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
     //Declarations
     public float speedMovemen;
 
-    private bool isJump;
-    private bool isMovingLeft;
-    public bool isLookingLeft;
-    private bool isFollowingPlayer;
+    [SerializeField] private bool isJump;
+    [SerializeField] private bool isMovingLeft;
+    [SerializeField] public bool isLookingLeft;
+    [SerializeField]private bool isFollowingPlayer;
+    public bool isSeePlayer;
+    public bool isSeeBomb;
 
-    private int action = 0;
-    private int changeDirection = 1;
+    public int action = 0;
+    [SerializeField] private int changeDirection = 1;
 
     public Rigidbody2D enemyRigidbody2D;
     public SpriteRenderer enemySpriteRender;
@@ -28,12 +29,16 @@ public class EnemyMovement : MonoBehaviour
 
     private EnemyAttack enemyAttackScript;
 
+    //For Animations
+    private Animator enemyAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyRigidbody2D = GetComponent<Rigidbody2D>();
         enemySpriteRender = GetComponent<SpriteRenderer>();
         enemyAttackScript = GetComponent<EnemyAttack>();
+        enemyAnimator = GetComponent<Animator>();
 
         isMovingLeft = isLookingLeft;
 
@@ -52,7 +57,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isLookingLeft)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            enemySpriteRender.flipX = true;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
             changeDirection *= -1;
         }
     }
@@ -65,13 +73,13 @@ public class EnemyMovement : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
+                isSeePlayer = true;
                 enemyAttackScript.HitPlayer();
-                Debug.Log("Lo veo");
             }
             if (collision.CompareTag("Bombs"))
             {
-                //enemyAttackScript.HitPlayer();
-                Debug.Log("Una bomba");
+                isSeeBomb = true;
+                enemyAttackScript.BombAction();
             }
         }
     }
@@ -84,6 +92,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void ChangeAction()
     {
+        isSeePlayer = false;
+        isSeeBomb = false;
+
         int probability = Random.Range(0, 100);
         if(probability < 80)
         {
@@ -119,23 +130,29 @@ public class EnemyMovement : MonoBehaviour
 
     private void StayStill()
     {
-
+        if (!isJump && !isFollowingPlayer && !isSeePlayer && !isSeeBomb)
+        {
+            enemyAnimator.SetBool("isWalking", false);
+            enemyAnimator.SetBool("isStill", true);
+        }   
     }
 
     private void Movement()
     {
-        if (!isJump && !isFollowingPlayer)
+        if (!isJump && !isFollowingPlayer && !isSeePlayer && !isSeeBomb)
         {
+            enemyAnimator.SetBool("isStill", false);
+            enemyAnimator.SetBool("isWalking", true);
             transform.Translate(Vector3.right * speedMovemen * Time.deltaTime);
         }
     }
 
-    
-
-    
-
     private void JumpPrecipice()
     {
+        enemyAnimator.SetBool("isWalking", false);
+        enemyAnimator.SetBool("isStill", false);
+        enemyAnimator.SetBool("isJumping", true);
+
         isJump = true;
         AudioManager.instance.PlaySFX(jumpAudioClip);
 
@@ -147,6 +164,10 @@ public class EnemyMovement : MonoBehaviour
         
         if (!isJump)
         {
+            enemyAnimator.SetBool("isWalking", false);
+            enemyAnimator.SetBool("isStill", false);
+            enemyAnimator.SetBool("isJumping", true);
+
             isJump = true;
 
             AudioManager.instance.PlaySFX(jumpAudioClip);
@@ -160,6 +181,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Floor"))
         {
+            enemyAnimator.SetBool("isJumping", false);
+
             isJump = false;
         }
         else if (collision.collider.CompareTag("Walls"))
@@ -174,6 +197,11 @@ public class EnemyMovement : MonoBehaviour
         {
             Decision();
         }
+        else if (collision.CompareTag("Walls"))
+        {
+            ChangeDirection();
+        }
+
     }
 
     private void Decision()

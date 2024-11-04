@@ -9,18 +9,30 @@ public class PlayerThrow : MonoBehaviour
     public Transform puntoDeLanzamiento; // Punto desde donde se lanzará la bomba
     public float fuerzaDeLanzamiento = 10f; // Fuerza con la que se lanza la bomba
   
-    public float timeThrow=0.1f;
+    public float timeThrow=0.3f;
 
     public float  timePress=0f;// la dejo publica para ver en el unity 
 
+     [SerializeField] private float tiempoEntreAtaques;
+    [SerializeField] private float tiempoSiguienteAtaque;
+
     void Update()
     {
+
+
+         if (tiempoSiguienteAtaque > 0)
+        {
+            tiempoSiguienteAtaque -= Time.deltaTime;
+        }
+
         // Detecta si se esta  presiona la barra espaciadora y determina el tiempo de presion 
-        if (Input.GetKey(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space) /*&& tiempoSiguienteAtaque <= 0*/) 
         {
            timePress+=Time.deltaTime; 
+           //tiempoSiguienteAtaque = tiempoEntreAtaques;
+           
         }
-        if (Input.GetKeyUp(KeyCode.Space)) //  se deja de presionar la barra 
+        if (Input.GetKeyUp(KeyCode.Space)&& tiempoSiguienteAtaque <= 0) //  se deja de presionar la barra 
         {
             if (timePress >= timeThrow) // si el tiempo de presionado es mayor al rango se lanza la bomba 
             {
@@ -31,6 +43,7 @@ public class PlayerThrow : MonoBehaviour
                 ColocarBomba(); // lllamado de funcion que coloca bomba en el mismo sitio 
             }
 
+            tiempoSiguienteAtaque = tiempoEntreAtaques;
             timePress = 0f; // Reinicia el temporizador
         }
     

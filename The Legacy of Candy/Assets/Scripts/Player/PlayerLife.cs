@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombExample : MonoBehaviour
+public class PlayerLife : MonoBehaviour
 {
+        private int life = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +16,14 @@ public class BombExample : MonoBehaviour
     {
         
     }
-    public void TakeAction()
-    {
-        Debug.Log("hay");
-        StartCoroutine("DestroyBomb");
-    }
 
-    IEnumerator DestroyBomb()
+    public void TakeDamage()
     {
-        yield return new WaitForSeconds(3);
-        Destroy(gameObject);
+        life --;
+        if (life == 0)
+        {   
+            
+            Destroy(gameObject);
+        }
     }
 }

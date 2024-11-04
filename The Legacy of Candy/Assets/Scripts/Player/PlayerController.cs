@@ -20,10 +20,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool enSuelo; // Indica si el jugador está tocando el suelo
     private bool salto = false; // Indica si el jugador ha intentado saltar
 
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+
     private void Start()
     {
-        // Inicializa el Rigidbody2D al iniciar el juego
+        
         rb2D = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -31,10 +37,23 @@ public class PlayerController : MonoBehaviour
         // Captura el movimiento horizontal basado en las teclas de dirección (izquierda/derecha)
         movimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
 
+        if (movimientoHorizontal != 0)
+        {
+            animator.SetBool("IsRunning",true);
+        }else {
+
+            animator.SetBool("IsRunning",false );
+        }
+
         // Detecta si se ha presionado la flecha hacia arriba para saltar
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             salto = true; // Se activa la acción de salto
+            animator.SetBool("Jump",true);// animacion salto 
+        }else 
+        {
+
+            animator.SetBool("Jump",false);
         }
     }
 
@@ -90,7 +109,7 @@ public class PlayerController : MonoBehaviour
         // Si el objeto con el que deja de colisionar tiene el tag "Floor", significa que ya no está en el suelo
         if (collision.gameObject.CompareTag("Floor"))
         {
-            enSuelo = false; // Establece enSuelo como false para evitar saltar mientras está en el aire
+            enSuelo = false; 
         }
     }
 
@@ -98,8 +117,22 @@ public class PlayerController : MonoBehaviour
     private void Girar()
     {
         mirandoDerecha = !mirandoDerecha; // Cambia la dirección de mirada del jugador
-        Vector3 escala = transform.localScale; // Obtiene la escala actual del jugador
+        Vector3 escala = transform.localScale;
         escala.x *= -1; // Invierte la escala en el eje X para cambiar la dirección
-        transform.localScale = escala; // Asigna la nueva escala al jugador
+        transform.localScale = escala; //  nueva escala del  jugador
+    }
+
+     private void OnTriggerEnter2D(Collider2D collision){
+
+       
+        if (collision.CompareTag("Candy"))
+        {
+        
+        GameManager.points++;
+        Debug.Log("candy");
+        Destroy(collision.gameObject);   
+
+        }
+        
     }
 }
