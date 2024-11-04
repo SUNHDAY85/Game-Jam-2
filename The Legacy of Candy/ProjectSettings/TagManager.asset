@@ -41,9 +41,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Roof
+  - Walls
+  - Floor
   m_SortingLayers:
   - name: Default
     uniqueID: 0
