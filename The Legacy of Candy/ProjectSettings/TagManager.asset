@@ -11,6 +11,10 @@ TagManager:
   - Walls
   - Bombs
   - Candy
+  - Abyss
+  - Jump Up
+  - DoorIn
+  - DoorOut
   layers:
   - Default
   - TransparentFX
@@ -20,11 +24,11 @@ TagManager:
   - UI
   - Bomb
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Obstacles
+  - Candies
+  - DoorIn
+  - DoorOut
   - 
   - 
   - 
