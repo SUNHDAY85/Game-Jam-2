@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -67,7 +66,6 @@ public class EnemyAttack : MonoBehaviour
 
                 Vector2 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
                 collision.transform.GetComponent<Rigidbody2D>().AddForce(awayFromPlayer * force, ForceMode2D.Impulse);
-                Debug.Log("Lo golpeo");
             }
         }
     }

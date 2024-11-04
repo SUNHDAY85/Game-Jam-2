@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -57,12 +56,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isLookingLeft)
         {
-            Debug.Log(transform.rotation);
-            Debug.Log(changeDirection);
+
             enemySpriteRender.flipX = true;
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            Debug.Log(transform.rotation);
-            Debug.Log(changeDirection);
+
             changeDirection *= -1;
         }
     }
@@ -77,12 +74,10 @@ public class EnemyMovement : MonoBehaviour
             {
                 isSeePlayer = true;
                 enemyAttackScript.HitPlayer();
-                Debug.Log("Lo veo");
             }
             if (collision.CompareTag("Bombs"))
             {
                 //enemyAttackScript.HitPlayer();
-                Debug.Log("Una bomba");
             }
         }
     }
