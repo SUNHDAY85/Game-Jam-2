@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> lifes;
 
     public GameObject nextGenerationButton;
+    public GameObject victory;
 
     public TextMeshProUGUI textPoints;
 
@@ -49,7 +50,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textPoints.text = points.ToString();
+        textPoints.text = points.ToString() + "/5";
+    }
+
+    public void Victory()
+    {
+        victory.SetActive(true);
     }
 
     public void AssingSkill()
@@ -74,6 +80,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void ChangeScene(string nameScene)
+    {
+        SceneManager.LoadScene(nameScene);
+    }
+    public void BackMenuInitial(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
     }

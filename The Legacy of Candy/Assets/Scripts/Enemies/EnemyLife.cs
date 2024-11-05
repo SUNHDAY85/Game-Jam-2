@@ -50,6 +50,10 @@ public class EnemyLife : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (life <= 0)
         {
+            if (gameObject.name == "BossCucumber")
+            {
+                GameManager.instance.Victory();
+            }
             Debug.Log("oe");
             int randomIndex = Random.Range(0, 3); // Random entre 0 y 2
             Instantiate(candy[randomIndex], transform.position, Quaternion.identity);
