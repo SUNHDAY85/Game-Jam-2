@@ -50,10 +50,10 @@ public class SkillsInPlayer : MonoBehaviour
                 playerControllerScript.velocidadDeMovimiento -= 50;
                 break;
             case 5:
-                playerLifeScript.life--;
+                playerLifeScript.life++;
                 break;
             case 6:
-                playerLifeScript.life++;
+                playerLifeScript.life--;
                 break;
         }
 
@@ -75,10 +75,10 @@ public class SkillsInPlayer : MonoBehaviour
                 playerControllerScript.velocidadDeMovimiento -= 50;
                 break;
             case 5:
-                playerLifeScript.life --;
+                playerLifeScript.life++;
                 break;
             case 6:
-                playerLifeScript.life++;
+                playerLifeScript.life--;
                 break;
         }
     }
