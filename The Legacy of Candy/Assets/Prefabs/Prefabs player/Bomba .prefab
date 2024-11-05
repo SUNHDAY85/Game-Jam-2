@@ -131,6 +131,9 @@ MonoBehaviour:
   controladorGolpe: {fileID: 6276841666192799274}
   radioGolpe: 1
   "da\xF1oGolpe": 0
+  force: 500
+  animator: {fileID: 0}
+  bombAudioClip: {fileID: 0}
 --- !u!70 &2706361052053822891
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

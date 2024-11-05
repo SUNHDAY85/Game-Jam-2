@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-        private int life = 2;
+    public int life;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +20,10 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage()
     {
         life --;
+        GameManager.instance.ChangeLifeIU(life);
         if (life == 0)
-        {   
-            
+        {
+            GameManager.instance.ActiveNextGenerationButton();
             Destroy(gameObject);
         }
     }
