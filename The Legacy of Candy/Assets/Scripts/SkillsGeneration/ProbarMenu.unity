@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3351458485997865778, guid: e2a484515c2958844bb7d517d4ccbdbf, type: 3}
       propertyPath: level
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3351458485997865778, guid: e2a484515c2958844bb7d517d4ccbdbf, type: 3}
       propertyPath: lifes.Array.size
