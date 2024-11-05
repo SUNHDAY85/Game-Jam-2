@@ -6,6 +6,8 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] private int life;
 
+     [SerializeField] private GameObject[] candy; // Lista de dulces 
+
     private Animator enemyAnimator;
 
     private EnemyMovement enemyMovementScript;
@@ -41,6 +43,8 @@ public class EnemyLife : MonoBehaviour
         if (life <= 0)
         {
             Debug.Log("oe");
+            int randomIndex = Random.Range(0, 3); // Random entre 0 y 2
+            Instantiate(candy[randomIndex], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         enemyAnimator.SetBool("isStill", false);

@@ -229,7 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMovemen: 2
+  isJump: 0
+  isMovingLeft: 0
   isLookingLeft: 0
+  isFollowingPlayer: 0
   isSeePlayer: 0
   isSeeBomb: 0
   action: 0
@@ -272,6 +275,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  candy:
+  - {fileID: 4069841485289883813, guid: 05d3a67136eeaf74398f26c597b5bec1, type: 3}
+  - {fileID: 5636110052974031245, guid: baea6b0fe03e0994b9e265b0f3b48314, type: 3}
+  - {fileID: 5932442127025255930, guid: a60a8d944bb84ff478ce7c93c7884082, type: 3}
 --- !u!1 &5074610192898047806
 GameObject:
   m_ObjectHideFlags: 0
