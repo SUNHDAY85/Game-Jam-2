@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Skills : MonoBehaviour
@@ -7,9 +8,14 @@ public class Skills : MonoBehaviour
     public string nameClass;
 
     public List<string> skills;
+    public string enemyName;
 
     public int indexSkillOne;
     public int indexSkillTwo;
+    public int playerIndex;
+
+    public TextMeshProUGUI skillOneText;
+    public TextMeshProUGUI skillTwoText;
 
     // Start is called before the first frame update
     void Start()
@@ -27,15 +33,10 @@ public class Skills : MonoBehaviour
     {
         indexSkillOne = SelectSkillsManager();
         indexSkillTwo = SelectSkills();
-        Debug.Log(skills[indexSkillOne]);
-        Debug.Log(skills[indexSkillTwo]);
+        playerIndex = SpawnSelectPlayer();
+        skillOneText.text = skills[indexSkillOne];
+        skillTwoText.text = skills[indexSkillTwo];
         ShowChanges();
-    }
-
-    public int SelectSkills()
-    {
-        int index = Random.Range(0, skills.Count);
-        return index;
     }
 
     public int SelectSkillsManager()
@@ -50,6 +51,26 @@ public class Skills : MonoBehaviour
         {
             index = GameManager.instance.index2;
             Debug.Log(index);
+        }
+        return index;
+    }
+
+    public int SelectSkills()
+    {
+        int index = Random.Range(0, skills.Count);
+        return index;
+    }
+
+    public int SpawnSelectPlayer()
+    {
+        int index;
+        if (enemyName == "BombGuy")
+        {
+            index = 0;
+        }
+        else
+        {
+            index = 1;
         }
         return index;
     }
@@ -99,6 +120,7 @@ public class Skills : MonoBehaviour
     {
         GameManager.instance.index1 = indexSkillOne;
         GameManager.instance.index2 = indexSkillTwo;
+        GameManager.instance.playerIndex = playerIndex;
         GameManager.instance.SelectScene();
     }
 }

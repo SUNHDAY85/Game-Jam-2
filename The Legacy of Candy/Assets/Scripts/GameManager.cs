@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int index1 = 0;
     public int index2 = 0;
+    public int playerIndex = 0;
 
     [SerializeField] private List<string> levels;
 
