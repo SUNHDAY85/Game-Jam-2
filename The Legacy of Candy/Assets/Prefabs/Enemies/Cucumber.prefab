@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91549e6746c96ba458f9bfa8baf1660d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 2
+  life: 1
   candy:
   - {fileID: 4069841485289883813, guid: 05d3a67136eeaf74398f26c597b5bec1, type: 3}
   - {fileID: 5636110052974031245, guid: baea6b0fe03e0994b9e265b0f3b48314, type: 3}
