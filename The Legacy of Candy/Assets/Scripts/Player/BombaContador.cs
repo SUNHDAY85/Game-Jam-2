@@ -11,6 +11,7 @@ public class BombaContador : MonoBehaviour
     [SerializeField] private Transform controladorGolpe;
     [SerializeField] private float radioGolpe;
     [SerializeField] private float dañoGolpe;
+    [SerializeField] private float force;
 
     [Header("Animator")]
     [SerializeField] private Animator animator;
@@ -68,15 +69,33 @@ public class BombaContador : MonoBehaviour
 
         foreach (Collider2D colisionador in objetos)
         {
+              Rigidbody2D rb2D =colisionador.GetComponent<Rigidbody2D>();
+
+              if(rb2D !=null)
+              {
+                Vector2 direccion = colisionador.transform.position - transform.position;
+                float distancia = 1 + direccion.magnitude;
+                float   finalForce=force/distancia;
+                rb2D.AddForce(direccion*finalForce);
+
+              }
+
             if ( colisionador.CompareTag("Player"))
             {
                 colisionador.transform.GetComponent<PlayerLife>().TakeDamage();
                 Debug.Log("Te ha estallado");
             }else  if (colisionador.CompareTag("Enemy") )
             {
-                colisionador.transform.GetComponent<PlayerExample>().TakeDamage();
+                colisionador.transform.GetComponent<EnemyLife>().TakeDamage();
             }
+            AppliedForce();
         }
+    }
+
+    private  void AppliedForce  ()
+    {
+      
+
     }
 
     private void OnDrawGizmos()
