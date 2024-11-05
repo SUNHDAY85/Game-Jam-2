@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7226065761569416576}
   - component: {fileID: 3383396616537453283}
   - component: {fileID: 6030413007947412093}
+  - component: {fileID: 6387415201818636}
   m_Layer: 7
   m_Name: PlayerM
   m_TagString: Player
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8d2fcc3a0c42c4fb206f5728ec195e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadDeMovimiento: 400
+  velocidadDeMovimiento: 200
   suavizadoDeMovimiento: 0.203
   fuerzaDeSalto: 5
   controladorSuelo: {fileID: 4800203375871911933}
@@ -251,3 +252,19 @@ MonoBehaviour:
   tiempoEntreAtaques: 1
   tiempoSiguienteAtaque: 0
   animator: {fileID: 3383396616537453283}
+--- !u!114 &6387415201818636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905539314580084226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ad301fffe19c54abf2edf13778e430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameClass: 
+  skills: []
+  indexSkillOne: 0
+  indexSkillTwo: 0

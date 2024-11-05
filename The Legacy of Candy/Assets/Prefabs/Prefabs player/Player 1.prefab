@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 8192103805409610791}
   - component: {fileID: 5431325768187593592}
   - component: {fileID: 8099513122411535258}
-  - component: {fileID: -6777178180990595487}
   - component: {fileID: 6713927830294032108}
   - component: {fileID: 2509574004710113952}
+  - component: {fileID: -4558127746350963460}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Player
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8d2fcc3a0c42c4fb206f5728ec195e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadDeMovimiento: 400
+  velocidadDeMovimiento: 200
   suavizadoDeMovimiento: 0.259
   fuerzaDeSalto: 5
   controladorSuelo: {fileID: 1656974713884663927}
@@ -234,18 +234,6 @@ MonoBehaviour:
   timePress: 0
   tiempoEntreAtaques: 1
   tiempoSiguienteAtaque: 0
---- !u!114 &-6777178180990595487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2983521529902391851}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e05e045b4b954b346bbe6c676f848db7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6713927830294032108
 Animator:
   serializedVersion: 5
@@ -279,6 +267,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4015258a81a6d4aa991821cc2accc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4558127746350963460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983521529902391851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ad301fffe19c54abf2edf13778e430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameClass: 
+  skills: []
+  indexSkillOne: 0
+  indexSkillTwo: 0
 --- !u!1 &8869011309064019856
 GameObject:
   m_ObjectHideFlags: 0

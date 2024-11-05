@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Prefabs/Menus/MenuInitial.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scripts/SkillsGeneration/ProbarMenu.unity
+    guid: 9b0f4e2e7d4132f48bca090e4c246394
+  - enabled: 1
+    path: Assets/Scripts/SkillsGeneration/PL1.unity
+    guid: 18490272ccd543c499f0f32ab05524a9
+  - enabled: 1
+    path: Assets/Scripts/SkillsGeneration/PL2.unity
+    guid: 056db086a8abc964e893d20b9d41171e
+  - enabled: 1
+    path: Assets/Scripts/SkillsGeneration/PL3.unity
+    guid: e3af5ad04b9aab64f9d0d5ddf0124163
+  - enabled: 1
+    path: Assets/Scripts/SkillsGeneration/PL4.unity
+    guid: 184d0328a24ee1147a591cb1d932ab80
+  - enabled: 1
+    path: Assets/Scripts/SkillsGeneration/SelectPlayer.unity
+    guid: e53816ed86800e242a2fd2ad7238f282
   m_configObjects: {}
