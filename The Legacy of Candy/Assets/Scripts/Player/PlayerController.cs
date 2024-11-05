@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public Door doorScript;
 
+    public AudioClip jumpAudioClip;
+
     private void Start()
     {
         
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
         // Salta si el jugador está en el suelo y ha intentado saltar
         if (enSuelo && saltar)
         {
+            AudioManager.instance.PlaySFX(jumpAudioClip);
             enSuelo = false; // Desactiva enSuelo para evitar múltiples saltos hasta volver al suelo
             rb2D.AddForce(new Vector2(0f, fuerzaDeSalto), ForceMode2D.Impulse); // Aplica la fuerza de salto
         }

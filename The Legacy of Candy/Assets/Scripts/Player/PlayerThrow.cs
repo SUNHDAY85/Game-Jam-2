@@ -13,8 +13,9 @@ public class PlayerThrow : MonoBehaviour
 
     public float  timePress=0f;// la dejo publica para ver en el unity 
 
-     [SerializeField] private float tiempoEntreAtaques;
+    [SerializeField] private float tiempoEntreAtaques;
     [SerializeField] private float tiempoSiguienteAtaque;
+    public AudioClip attackAudioClip;
 
     void Update()
     {
@@ -42,6 +43,7 @@ public class PlayerThrow : MonoBehaviour
             {
                 ColocarBomba(); // lllamado de funcion que coloca bomba en el mismo sitio 
             }
+            AudioManager.instance.PlaySFX(attackAudioClip);
 
             tiempoSiguienteAtaque = tiempoEntreAtaques;
             timePress = 0f; // Reinicia el temporizador

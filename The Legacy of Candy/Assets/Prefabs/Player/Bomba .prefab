@@ -134,7 +134,7 @@ MonoBehaviour:
   "da\xF1oGolpe": 0
   force: 500
   animator: {fileID: 0}
-  bombAudioClip: {fileID: 0}
+  bombAudioClip: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!70 &2706361052053822891
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

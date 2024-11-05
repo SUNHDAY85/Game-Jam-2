@@ -32,6 +32,7 @@ public class BombaContador : MonoBehaviour
         if (contador <= 0 && !haExplotado) // Verifica que la explosión aún no haya ocurrido
         {
             haExplotado = true; // Marca que la explosión ocurrió
+            AudioManager.instance.PlaySFX(bombAudioClip);
             AutoDestroy();
             Golpe();
         }
@@ -43,7 +44,6 @@ public class BombaContador : MonoBehaviour
         {
             animator.SetBool("Explotion", true);
             StartCoroutine(EsperarFinAnimacion());
-           // AudioManager.instance.PlaySFX(bombAudioClip);
         }
     }
 

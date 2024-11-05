@@ -142,6 +142,8 @@ MonoBehaviour:
   dimensionesCaja: {x: 1, y: 1, z: 0}
   enSuelo: 0
   animator: {fileID: 3383396616537453283}
+  doorScript: {fileID: 0}
+  jumpAudioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
 --- !u!61 &350828941389104953
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -253,6 +255,7 @@ MonoBehaviour:
   tiempoEntreAtaques: 1
   tiempoSiguienteAtaque: 0
   animator: {fileID: 3383396616537453283}
+  attackAudioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
 --- !u!114 &6387415201818636
 MonoBehaviour:
   m_ObjectHideFlags: 0
