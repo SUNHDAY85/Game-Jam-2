@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movimiento")]
     private float movimientoHorizontal = 0f; // Almacena el valor de movimiento horizontal
-    [SerializeField] private float velocidadDeMovimiento; // Velocidad del jugador
+    [SerializeField] public float velocidadDeMovimiento; // Velocidad del jugador
     [Range(0, 0.3f)][SerializeField] private float suavizadoDeMovimiento; // Suavizado del cambio de dirección
     private Vector3 velocidad = Vector3.zero; // Almacena la velocidad actual para suavizar la transición
     private bool mirandoDerecha = true; // Indica si el jugador está mirando a la derecha
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Detecta si se ha presionado la flecha hacia arriba para saltar
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             salto = true; // Se activa la acción de salto
             animator.SetBool("Jump",true);// animacion salto 
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Candy"))
         {
         
-        GameManager.points++;
+        GameManager.instance.points++;
         Debug.Log("candy");
         Destroy(collision.gameObject);   
 
