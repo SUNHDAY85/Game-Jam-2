@@ -11,6 +11,8 @@ public class CombateCaC : MonoBehaviour
     [SerializeField] private float tiempoSiguienteAtaque;
     [SerializeField] private Animator animator;
 
+    public AudioClip attackAudioClip;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -29,9 +31,9 @@ public class CombateCaC : MonoBehaviour
             Golpe();
             tiempoSiguienteAtaque = tiempoEntreAtaques;
             Debug.Log(" atacando");
-            
-
-        }else {
+            AudioManager.instance.PlaySFX(attackAudioClip);
+        }
+        else {
 
            // animator.SetBool("attack",false);
 

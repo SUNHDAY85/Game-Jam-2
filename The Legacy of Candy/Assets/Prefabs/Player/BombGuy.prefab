@@ -215,6 +215,8 @@ MonoBehaviour:
   dimensionesCaja: {x: 1, y: 1, z: 0}
   enSuelo: 0
   animator: {fileID: 6713927830294032108}
+  doorScript: {fileID: 0}
+  jumpAudioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
 --- !u!114 &8099513122411535258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +236,7 @@ MonoBehaviour:
   timePress: 0
   tiempoEntreAtaques: 1
   tiempoSiguienteAtaque: 0
+  attackAudioClip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
 --- !u!95 &6713927830294032108
 Animator:
   serializedVersion: 5
