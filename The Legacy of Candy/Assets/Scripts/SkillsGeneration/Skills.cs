@@ -47,12 +47,10 @@ public class Skills : MonoBehaviour
         if (index == 0)
         {
             index = GameManager.instance.index1;
-            Debug.Log(index);
         }
         else
         {
             index = GameManager.instance.index2;
-            Debug.Log(index);
         }
         return index;
     }

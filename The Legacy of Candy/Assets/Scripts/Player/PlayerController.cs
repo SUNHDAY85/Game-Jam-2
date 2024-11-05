@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animator")]
     [SerializeField] private Animator animator;
+
+    public Door doorScript;
 
     private void Start()
     {
@@ -133,6 +136,13 @@ public class PlayerController : MonoBehaviour
         Destroy(collision.gameObject);   
 
         }
-        
+        if (collision.CompareTag("DoorIn"))
+        {
+            doorScript = GameObject.FindWithTag("DoorIn").GetComponent<Door>();
+            if (doorScript.isOpen)
+            {
+                GameManager.instance.SelectScene();
+            }     
+        }
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6197775628784694514}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: HitTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3145871796375387992}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: SeeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 980574990982037501}
   - component: {fileID: 2143231322372970859}
   - component: {fileID: 1134394112975436919}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Cucumber
   m_TagString: Enemy
   m_Icon: {fileID: 0}

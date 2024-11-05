@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BombaContador : MonoBehaviour
 
-{  float contador = 5;
+{  
+    public float contador;
     public GameObject Explosion;
 
     [SerializeField] private Transform controladorGolpe;

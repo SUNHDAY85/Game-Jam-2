@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8719670078690758016}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: SeeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1616841701674050987}
   - component: {fileID: 7122172062258546156}
   - component: {fileID: 5003026052004065283}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Whale
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -229,7 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMovemen: 2
+  isJump: 0
+  isMovingLeft: 0
   isLookingLeft: 1
+  isFollowingPlayer: 0
   isSeePlayer: 0
   isSeeBomb: 0
   action: 0
@@ -272,6 +275,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
+  candy:
+  - {fileID: 4069841485289883813, guid: 05d3a67136eeaf74398f26c597b5bec1, type: 3}
+  - {fileID: 5636110052974031245, guid: baea6b0fe03e0994b9e265b0f3b48314, type: 3}
+  - {fileID: 5932442127025255930, guid: a60a8d944bb84ff478ce7c93c7884082, type: 3}
 --- !u!1 &8043782438046178656
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3172517007476110753}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: HitTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

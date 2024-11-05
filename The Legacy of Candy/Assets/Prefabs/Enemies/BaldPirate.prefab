@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6178223678568157262}
   - component: {fileID: 4703195053183579580}
   - component: {fileID: -1190980813461405128}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: BaldPirate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2649597448564170662}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: HitTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6789762873489649362}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: SeeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

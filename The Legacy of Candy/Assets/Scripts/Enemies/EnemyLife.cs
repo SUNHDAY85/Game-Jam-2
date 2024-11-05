@@ -11,11 +11,19 @@ public class EnemyLife : MonoBehaviour
     private Animator enemyAnimator;
 
     private EnemyMovement enemyMovementScript;
+    private BossCucumber enemyBossMovementScript;
     // Start is called before the first frame update
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();
-        enemyMovementScript = GetComponent<EnemyMovement>();
+        if (gameObject.name == "BossCucumber")
+        {
+            enemyBossMovementScript = GetComponent<BossCucumber>();
+        }
+        else
+        {
+            enemyMovementScript = GetComponent<EnemyMovement>();
+        }
     }
 
     // Update is called once per frame
@@ -51,8 +59,14 @@ public class EnemyLife : MonoBehaviour
         enemyAnimator.SetBool("isJumping", false);
         enemyAnimator.SetBool("isAttacking", false);
         enemyAnimator.SetBool("isHit", false);
-        enemyMovementScript.action = 1;
-
+        if (gameObject.name == "BossCucumber")
+        {
+            enemyBossMovementScript.action = 1;
+        }
+        else
+        {
+            enemyMovementScript.action = 1;
+        }
         enemyAnimator.SetBool("isWalking", true);
     }
 }

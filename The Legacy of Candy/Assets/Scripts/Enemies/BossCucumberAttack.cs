@@ -63,7 +63,7 @@ public class BossCucumberAttack : MonoBehaviour
 
 
 
-                collision.transform.GetComponent<PlayerExample>().TakeDamage();
+                collision.transform.GetComponent<PlayerLife>().TakeDamage();
 
                 Vector2 awayFromPlayer = (collision.gameObject.transform.position - transform.position);
                 collision.transform.GetComponent<Rigidbody2D>().AddForce(awayFromPlayer * forceHit, ForceMode2D.Impulse);
@@ -87,10 +87,6 @@ public class BossCucumberAttack : MonoBehaviour
                 StartCoroutine("NotHit");
 
                 timeNextHit = hitDelayTime;
-
-
-
-                collision.transform.GetComponent<BombExample>().TakeAction();
 
                 Vector2 awayFromBomb = (collision.gameObject.transform.position - transform.position);
                 collision.transform.GetComponent<Rigidbody2D>().AddForce(awayFromBomb * forceAction, ForceMode2D.Impulse);

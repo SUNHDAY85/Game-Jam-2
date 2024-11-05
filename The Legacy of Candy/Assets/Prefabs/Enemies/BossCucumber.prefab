@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5273789598303845443}
   - component: {fileID: 3917494439416159134}
   - component: {fileID: 6726091434060319268}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: BossCucumber
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -246,6 +246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 10
+  candy:
+  - {fileID: 4069841485289883813, guid: 05d3a67136eeaf74398f26c597b5bec1, type: 3}
+  - {fileID: 5636110052974031245, guid: baea6b0fe03e0994b9e265b0f3b48314, type: 3}
+  - {fileID: 5932442127025255930, guid: a60a8d944bb84ff478ce7c93c7884082, type: 3}
 --- !u!1 &6774143743661599992
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3529961770405859023}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: SeeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1847707349375676081}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: HitTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

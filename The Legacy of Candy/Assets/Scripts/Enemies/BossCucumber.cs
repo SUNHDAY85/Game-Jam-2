@@ -28,7 +28,7 @@ public class BossCucumber : MonoBehaviour
 
     public float seeRadius;
 
-    private EnemyAttack enemyAttackScript;
+    private BossCucumberAttack enemyAttackScript;
 
     public GameObject miniCucumber;
 
@@ -40,7 +40,7 @@ public class BossCucumber : MonoBehaviour
     {
         enemyRigidbody2D = GetComponent<Rigidbody2D>();
         enemySpriteRender = GetComponent<SpriteRenderer>();
-        enemyAttackScript = GetComponent<EnemyAttack>();
+        enemyAttackScript = GetComponent<BossCucumberAttack>();
         enemyAnimator = GetComponent<Animator>();
 
         isMovingLeft = isLookingLeft;
