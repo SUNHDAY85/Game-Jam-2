@@ -12,6 +12,7 @@ public class SkillsInPlayer : MonoBehaviour
     public int indexSkillTwo;
 
     private PlayerController playerControllerScript;
+    private PlayerLife playerLifeScript;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class SkillsInPlayer : MonoBehaviour
         indexSkillOne = GameManager.instance.index1;
         indexSkillTwo = GameManager.instance.index2;
         playerControllerScript = gameObject.GetComponent<PlayerController>();
+        playerLifeScript = gameObject.GetComponent<PlayerLife>();
         ShowChanges();
     }
 
@@ -47,6 +49,12 @@ public class SkillsInPlayer : MonoBehaviour
             case 4:
                 playerControllerScript.velocidadDeMovimiento -= 50;
                 break;
+            case 5:
+                playerLifeScript.life--;
+                break;
+            case 6:
+                playerLifeScript.life++;
+                break;
         }
 
         switch (indexSkillTwo)
@@ -65,6 +73,12 @@ public class SkillsInPlayer : MonoBehaviour
                 break;
             case 4:
                 playerControllerScript.velocidadDeMovimiento -= 50;
+                break;
+            case 5:
+                playerLifeScript.life --;
+                break;
+            case 6:
+                playerLifeScript.life++;
                 break;
         }
     }

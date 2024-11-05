@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Candy"))
         {
         
-        GameManager.points++;
+        GameManager.instance.points++;
         Debug.Log("candy");
         Destroy(collision.gameObject);   
 

@@ -240,10 +240,13 @@ MonoBehaviour:
   - Small
   - Fast
   - Slow
+  - Vigorous
+  - Fragile
   enemyName: BombGuy
   indexSkillOne: 0
   indexSkillTwo: 0
   playerIndex: 0
+  life: 0
   skillOneText: {fileID: 3826358341804033335}
   skillTwoText: {fileID: 3478627237289557564}
 --- !u!61 &4425660636053572757

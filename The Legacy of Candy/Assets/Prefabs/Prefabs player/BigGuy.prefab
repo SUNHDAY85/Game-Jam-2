@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 3383396616537453283}
   - component: {fileID: 6030413007947412093}
   - component: {fileID: 6387415201818636}
+  - component: {fileID: -722349107171399890}
   m_Layer: 7
   m_Name: BigGuy
   m_TagString: Player
@@ -268,3 +269,16 @@ MonoBehaviour:
   skills: []
   indexSkillOne: 0
   indexSkillTwo: 0
+--- !u!114 &-722349107171399890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905539314580084226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c4015258a81a6d4aa991821cc2accc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 3

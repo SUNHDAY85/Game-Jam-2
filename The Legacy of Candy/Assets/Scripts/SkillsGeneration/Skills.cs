@@ -13,6 +13,7 @@ public class Skills : MonoBehaviour
     public int indexSkillOne;
     public int indexSkillTwo;
     public int playerIndex;
+    public int life = 3;
 
     public TextMeshProUGUI skillOneText;
     public TextMeshProUGUI skillTwoText;
@@ -20,6 +21,7 @@ public class Skills : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        life = 3;
         AssingSkill();
     }
 
@@ -94,6 +96,12 @@ public class Skills : MonoBehaviour
             case 4:
                 
                 break;
+            case 5:
+                life++;
+                break;
+            case 6:
+                life--;
+                break;
         }
 
         switch (indexSkillTwo)
@@ -113,6 +121,12 @@ public class Skills : MonoBehaviour
             case 4:
                 
                 break;
+            case 5:
+                life++;
+                break;
+            case 6:
+                life--;
+                break;
         }
     }
 
@@ -121,6 +135,8 @@ public class Skills : MonoBehaviour
         GameManager.instance.index1 = indexSkillOne;
         GameManager.instance.index2 = indexSkillTwo;
         GameManager.instance.playerIndex = playerIndex;
+        GameManager.instance.ResetLevel();
         GameManager.instance.SelectScene();
+        GameManager.instance.ActivateLifes(life);
     }
 }

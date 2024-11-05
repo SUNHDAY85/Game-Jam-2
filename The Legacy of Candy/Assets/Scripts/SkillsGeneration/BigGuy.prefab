@@ -106,10 +106,13 @@ MonoBehaviour:
   - Small
   - Fast
   - Slow
+  - Vigorous
+  - Fragile
   enemyName: BigGuy
   indexSkillOne: 0
   indexSkillTwo: 0
   playerIndex: 0
+  life: 0
   skillOneText: {fileID: 1909688998132728314}
   skillTwoText: {fileID: 4435925189762300199}
 --- !u!61 &-3438665028679217461
