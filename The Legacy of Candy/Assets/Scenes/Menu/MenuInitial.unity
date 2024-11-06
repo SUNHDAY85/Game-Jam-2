@@ -2173,7 +2173,7 @@ MonoBehaviour:
 
 
     Collect 5 candies
-    to advance the level and defeat the pirate boss.'
+    to open the door, advance the level and defeat the pirate boss.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d62887ce095f3e348ba7f48c51dd7a97, type: 2}
   m_sharedMaterial: {fileID: -7792641318687311402, guid: d62887ce095f3e348ba7f48c51dd7a97, type: 2}
