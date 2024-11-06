@@ -8,10 +8,15 @@ public class Door : MonoBehaviour
     //Declarations
     public Animator animatorDoor;
     public bool isOpen;
+
+    public AudioClip doorCloseAudioClip;
+    public AudioClip doorOpenAudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
         animatorDoor = gameObject.GetComponent<Animator>();
+        AudioManager.instance.PlaySFX(doorCloseAudioClip);
     }
 
     // Update is called once per frame
@@ -21,6 +26,7 @@ public class Door : MonoBehaviour
         {
             animatorDoor.SetBool("isOpen", true);
             isOpen = true;
+            AudioManager.instance.PlaySFX(doorOpenAudioClip);
         }
         else
         {

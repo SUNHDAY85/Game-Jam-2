@@ -12,6 +12,9 @@ public class EnemyLife : MonoBehaviour
 
     private EnemyMovement enemyMovementScript;
     private BossCucumber enemyBossMovementScript;
+
+    public AudioClip victoryAudioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,7 @@ public class EnemyLife : MonoBehaviour
         {
             if (gameObject.name == "BossCucumber")
             {
+                AudioManager.instance.PlaySFX(victoryAudioClip);
                 GameManager.instance.Victory();
             }
             Debug.Log("oe");
