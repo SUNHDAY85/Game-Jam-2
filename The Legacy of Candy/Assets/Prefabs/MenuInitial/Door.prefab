@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorDoor: {fileID: 0}
   isOpen: 0
+  doorCloseAudioClip: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
+  doorOpenAudioClip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
 --- !u!61 &6571567038849551641
 BoxCollider2D:
   m_ObjectHideFlags: 0
