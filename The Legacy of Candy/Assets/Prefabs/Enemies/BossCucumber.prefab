@@ -210,6 +210,7 @@ MonoBehaviour:
   enemySpriteRender: {fileID: 0}
   jumpAudioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
   attackAudioClip: {fileID: 8300000, guid: a931da70ee74947d5a047de583170ade, type: 3}
+  finalLevelAudioClip: {fileID: 8300000, guid: 4c2b6e993058b4b4f9cb4e3e8b625a57, type: 3}
   seeTransform: {fileID: 3529961770405859023}
   seeRadius: 1.5
   miniCucumber: {fileID: 7694715331953755861, guid: f6aa3986daeadc74fa4cff327ee6f14c, type: 3}

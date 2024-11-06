@@ -22,6 +22,7 @@ public class BossCucumber : MonoBehaviour
 
     public AudioClip jumpAudioClip;
     public AudioClip attackAudioClip;
+    public AudioClip finalLevelAudioClip;
 
     //For the hit player
     public Transform seeTransform;
@@ -44,6 +45,8 @@ public class BossCucumber : MonoBehaviour
         enemyAnimator = GetComponent<Animator>();
 
         isMovingLeft = isLookingLeft;
+
+        AudioManager.instance.PlayMusic(finalLevelAudioClip);
 
         StartFlipSpriteX();
         InvokeRepeating("ChangeAction", 0, 10);
