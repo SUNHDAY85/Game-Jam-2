@@ -52,3 +52,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Door
+    uniqueID: 689241841
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2612827317
+    locked: 0
+  - name: Bombs
+    uniqueID: 2526340373
+    locked: 0
+  - name: Enemy
+    uniqueID: 1169616039
+    locked: 0
+  - name: Player
+    uniqueID: 1193046713
+    locked: 0

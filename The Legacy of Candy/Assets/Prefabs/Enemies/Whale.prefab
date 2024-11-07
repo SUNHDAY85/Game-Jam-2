@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4555199971897009958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31400013, y: 0, z: 0}
+  m_LocalPosition: {x: 0.31400013, y: -0.06399989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,8 +109,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1169616039
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ec439e52efaec754ea03a435b2e79fc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -241,7 +241,7 @@ MonoBehaviour:
   enemySpriteRender: {fileID: 0}
   jumpAudioClip: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
   seeTransform: {fileID: 8719670078690758016}
-  seeRadius: 0.5
+  seeRadius: 0.4
 --- !u!114 &7122172062258546156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitTransform: {fileID: 3172517007476110753}
-  hitRadius: 0.5
+  hitRadius: 0.4
   hitDelayTime: 1
   timeNextHit: 0.35
   forceHit: 20
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 8043782438046178656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.314, y: 0, z: 0}
+  m_LocalPosition: {x: 0.314, y: -0.064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

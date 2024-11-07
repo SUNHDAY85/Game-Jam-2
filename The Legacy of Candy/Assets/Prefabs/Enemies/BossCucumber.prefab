@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1169616039
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35fc9cbfb38a14b4c8886d4175a405c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -212,7 +212,7 @@ MonoBehaviour:
   attackAudioClip: {fileID: 8300000, guid: a931da70ee74947d5a047de583170ade, type: 3}
   finalLevelAudioClip: {fileID: 8300000, guid: 4c2b6e993058b4b4f9cb4e3e8b625a57, type: 3}
   seeTransform: {fileID: 3529961770405859023}
-  seeRadius: 1.5
+  seeRadius: 1
   miniCucumber: {fileID: 7694715331953755861, guid: f6aa3986daeadc74fa4cff327ee6f14c, type: 3}
 --- !u!114 &3917494439416159134
 MonoBehaviour:
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitTransform: {fileID: 1847707349375676081}
-  hitRadius: 1.5
+  hitRadius: 1
   hitDelayTime: 1
   timeNextHit: 0.35
   forceHit: 20
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 6774143743661599992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08500004, y: -0.21200003, z: 0}
+  m_LocalPosition: {x: 0.11100007, y: -0.12900004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 7964644347835966500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.085, y: -0.212, z: 0}
+  m_LocalPosition: {x: 0.111, y: -0.129, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
