@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject nextGenerationButton;
     public GameObject victory;
+    public GameObject openDoor;
 
     public TextMeshProUGUI textPoints;
 
@@ -53,6 +54,11 @@ public class GameManager : MonoBehaviour
         textPoints.text = points.ToString() + "/5";
     }
 
+    public void ActiveText(bool action)
+    {
+        openDoor.SetActive(action);
+    }
+
     public void Victory()
     {
         victory.SetActive(true);
@@ -67,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         level++;
         points = 0;
+        ActiveText(false);
         if (level < 5)
         {
             int indexLevel = Random.Range(0, levels.Count);

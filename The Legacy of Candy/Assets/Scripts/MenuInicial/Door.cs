@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -22,11 +23,21 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.points >= 5)
+        if (GameManager.instance.points >= 5 && !isOpen)
         {
             animatorDoor.SetBool("isOpen", true);
             isOpen = true;
+
             AudioManager.instance.PlaySFX(doorOpenAudioClip);
+
+            if (SceneManager.GetActiveScene().name == "BossLevel")
+            {
+
+            }
+            else
+            {
+                GameManager.instance.ActiveText(true);
+            }     
         }
         else
         {
