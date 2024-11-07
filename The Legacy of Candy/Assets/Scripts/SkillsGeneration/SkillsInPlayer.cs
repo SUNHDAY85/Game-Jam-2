@@ -81,5 +81,7 @@ public class SkillsInPlayer : MonoBehaviour
                 playerLifeScript.life--;
                 break;
         }
+
+        GameManager.instance.ActivateLifes(playerLifeScript.life);
     }
 }

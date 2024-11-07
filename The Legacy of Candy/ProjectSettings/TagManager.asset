@@ -49,6 +49,12 @@ TagManager:
   - Walls
   - Floor
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2020598473
+    locked: 0
+  - name: Ground
+    uniqueID: 1181136307
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -58,12 +64,15 @@ TagManager:
   - name: Obstacle
     uniqueID: 2612827317
     locked: 0
-  - name: Bombs
-    uniqueID: 2526340373
-    locked: 0
   - name: Enemy
     uniqueID: 1169616039
     locked: 0
   - name: Player
     uniqueID: 1193046713
+    locked: 0
+  - name: Bombs
+    uniqueID: 2526340373
+    locked: 0
+  - name: Candy
+    uniqueID: 2760829697
     locked: 0
