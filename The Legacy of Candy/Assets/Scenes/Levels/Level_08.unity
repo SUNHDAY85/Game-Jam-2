@@ -250,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736976814528225505, guid: 9eb9419a7f5382642b0ea0aaa0651f6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02473709
+      value: -0.034
       objectReference: {fileID: 0}
     - target: {fileID: 2736976814528225505, guid: 9eb9419a7f5382642b0ea0aaa0651f6b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -421,9 +421,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 2020598473
+  m_SortingLayer: -2
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -4771,8 +4771,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1181136307
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -4945,7 +4945,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5592,8 +5592,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1042031903, guid: 589b73fb6d8c0f34d8603d2e50986f28, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 6
     m_Data: {fileID: 1872566676, guid: 589b73fb6d8c0f34d8603d2e50986f28, type: 3}
   - m_RefCount: 3
@@ -5604,8 +5604,8 @@ Tilemap:
     m_Data: {fileID: 1513354689, guid: 589b73fb6d8c0f34d8603d2e50986f28, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -657897112, guid: 589b73fb6d8c0f34d8603d2e50986f28, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1042031903, guid: 589b73fb6d8c0f34d8603d2e50986f28, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1374395923, guid: 589b73fb6d8c0f34d8603d2e50986f28, type: 3}
   - m_RefCount: 7

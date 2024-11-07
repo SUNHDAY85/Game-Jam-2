@@ -36,8 +36,8 @@ public class Skills : MonoBehaviour
         indexSkillOne = SelectSkillsManager();
         indexSkillTwo = SelectSkills();
         playerIndex = SpawnSelectPlayer();
-        skillOneText.text = skills[indexSkillOne];
-        skillTwoText.text = skills[indexSkillTwo];
+        skillOneText.text = "You inherited:\n" + skills[indexSkillOne];
+        skillTwoText.text = "You own skill:\n" + skills[indexSkillTwo];
         ShowChanges();
     }
 
